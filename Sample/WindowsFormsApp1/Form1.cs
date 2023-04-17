@@ -24,5 +24,47 @@ namespace WindowsFormsApp1 {
             tbAns.Text = sum.ToString();
             
         }
+
+        private void label3_Click(object sender, EventArgs e) {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e) {
+
+        }
+
+        private void tbResult_TextChanged(object sender, EventArgs e) {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e) {
+
+        }
+
+        private void btPow_Click(object sender, EventArgs e) {
+            
+        }
+
+        private void btPow_Click_1(object sender, EventArgs e) {
+            
+            decimal num = nudX.Value;
+            
+            for (int i = 1; i < nudY.Value; i++)
+            {
+                num = nudX.Value * num;
+            }
+
+            tbResult.Text = num.ToString(); 
+
+        }
+
+        //double result = Math.Pow((double)nudX.Value,(double)nudY.Value)
+        //tbResult.Text = result.ToString();
+        //
+
+
+        private void nudX_ValueChanged(object sender, EventArgs e) {
+
+        }
     }
 }
