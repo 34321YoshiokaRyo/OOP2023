@@ -12,6 +12,7 @@ namespace BallApp {
         private Timer moveTimer;    //タイマー用
         private SoccerBall soccerBall;
         private PictureBox pb;
+        int cnt = 0;
 
         private List<SoccerBall> balls = new List<SoccerBall>();    //ボールインスタンス格納用
         private List<PictureBox> pbs = new List<PictureBox>();      //表示用
@@ -48,6 +49,9 @@ namespace BallApp {
             pbs.Add(pb);
 
             moveTimer.Start();//タイマースタート
+            
+            cnt++;
+            this.Text = "BallGame" + cnt;
         }
 
         //タイマーアウト時のイベントハンドラ
