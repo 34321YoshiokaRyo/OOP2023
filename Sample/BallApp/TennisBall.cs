@@ -1,28 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace BallApp {
-    class SoccerBall : Obj{
-
+    class TennisBall : Obj {
+        
         Random random = new Random();
 
-        //コンストラクタ
-        public SoccerBall(double x, double y)
-            :base(x,y, @"pic\soccer_ball.png"){
+        public TennisBall(double x, double y)
+           : base(x, y, @"pic\tennis_ball.png") {
             int rndX = random.Next(-15, 15);
             MoveX = (rndX != 0 ? rndX : 1);
             int rndY = random.Next(-15, 15);
             MoveY = (rndY != 0 ? rndY : 1);
         }
 
-        //メソッド
         public override void Move() {
-            Console.WriteLine("x座標 = {0},y座標 = {1}", PosX,PosY);
-
             PosX += MoveX;
             PosY += MoveY;
 
@@ -36,6 +31,5 @@ namespace BallApp {
                 MoveY = -MoveY;
             }
         }
-
     }
 }
