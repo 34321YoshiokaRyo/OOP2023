@@ -58,8 +58,8 @@ namespace BallApp {
                 pbs.Add(pb);
 
                 moveTimer.Start();//タイマースタート
-          
-                this.Text = "BallGame" + balls.Count;
+
+                
             }
             else
             {
@@ -76,9 +76,9 @@ namespace BallApp {
 
                 moveTimer.Start();//タイマースタート
 
-                this.Text = "BallGame" + balls.Count;
             }
-        
+            this.Text = "BallGame  SoccerBall:" + SoccerBall.Cnt + "  TennisBall:"  + TennisBall.Cnt;
+
     }
 
         //タイマーアウト時のイベントハンドラ

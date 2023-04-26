@@ -8,6 +8,9 @@ namespace BallApp {
     class TennisBall : Obj {
         
         Random random = new Random();
+        private static int cnt = 0;
+
+        public static int Cnt { get => cnt; set => cnt = value; }
 
         public TennisBall(double x, double y)
            : base(x, y, @"pic\tennis_ball.png") {
@@ -15,7 +18,10 @@ namespace BallApp {
             MoveX = (rndX != 0 ? rndX : 1);
             int rndY = random.Next(-15, 15);
             MoveY = (rndY != 0 ? rndY : 1);
+            Cnt++;
         }
+
+        
 
         public override void Move() {
             PosX += MoveX;
@@ -31,5 +37,7 @@ namespace BallApp {
                 MoveY = -MoveY;
             }
         }
+
+       
     }
 }

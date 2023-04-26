@@ -9,6 +9,7 @@ namespace BallApp {
     class SoccerBall : Obj{
 
         Random random = new Random();
+        private static int cnt;
 
         //コンストラクタ
         public SoccerBall(double x, double y)
@@ -17,7 +18,11 @@ namespace BallApp {
             MoveX = (rndX != 0 ? rndX : 1);
             int rndY = random.Next(-15, 15);
             MoveY = (rndY != 0 ? rndY : 1);
+            Cnt++;
         }
+
+        
+        public static int Cnt { get => cnt; set => cnt = value; }
 
         //メソッド
         public override void Move() {

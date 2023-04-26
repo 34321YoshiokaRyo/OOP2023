@@ -32,5 +32,7 @@ namespace BallApp {
 
         //移動メソッド
         public abstract void Move();
+
+        
     }
 }
