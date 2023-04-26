@@ -20,8 +20,7 @@ namespace BallApp {
             MoveY = (rndY != 0 ? rndY : 1);
             Cnt++;
         }
-
-        
+                
         public static int Cnt { get => cnt; set => cnt = value; }
 
         //メソッド

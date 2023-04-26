@@ -21,8 +21,6 @@ namespace BallApp {
             Cnt++;
         }
 
-        
-
         public override void Move() {
             PosX += MoveX;
             PosY += MoveY;
@@ -37,7 +35,5 @@ namespace BallApp {
                 MoveY = -MoveY;
             }
         }
-
-       
     }
 }
