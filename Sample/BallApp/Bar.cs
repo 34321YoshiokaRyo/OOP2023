@@ -14,12 +14,12 @@ namespace BallApp {
             
         }
 
-        public override void Move() {
+        public override void Move(PictureBox Pbbar, PictureBox PbBall) {
             ;
         }
 
-        public void Move(Keys direction) {
-            if (direction == Keys.Right && PosX < 640){
+        public override void Move(Keys direction) {
+            if (direction == Keys.Right && PosX < 635){
                 PosX += MoveX;
             }
             else if (direction == Keys.Left && PosX > 0) {
