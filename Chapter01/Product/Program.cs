@@ -47,6 +47,11 @@ namespace ProductSample {
 
             Console.WriteLine("あなたは生まれてから今日まで" + interval.Days + "日目です。");
             #endregion
+
+            #region 演習３
+            string[] weeks = { "日", "月", "火", "水", "木", "金", "土" };
+            Console.WriteLine(weeks[(int)birth.DayOfWeek] + "曜日");
+            #endregion
         }
     }
 }
