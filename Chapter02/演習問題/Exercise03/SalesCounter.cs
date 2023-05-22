@@ -30,7 +30,7 @@ namespace Exercise03 {
         public IDictionary<string, int> GetPerCategory() {
             var dict = new SortedDictionary<string, int>();
             foreach (var sale in _sales) {
-                if (dict.ContainsKey(sale.ShopName))
+                if (dict.ContainsKey(sale.ProductCategory))
                     dict[sale.ProductCategory] += sale.Amount;
                 else
                     dict[sale.ProductCategory] = sale.Amount;
