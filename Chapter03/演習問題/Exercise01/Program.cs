@@ -40,11 +40,21 @@ namespace Exercise01 {
 
         private static void Exercise1_3(List<int> numbers) {
             IEnumerable<int> query = numbers.Where(n => n >= 50);
-            
+            foreach (var item in query) {
+                Console.WriteLine(item);
+            }
+
+           // numbers.Where(n => n >= 50).ToList().ForEach(Console.WriteLine);
         }
 
         private static void Exercise1_4(List<int> numbers) {
-        
+            IEnumerable<int> query = numbers.Select(n => n * 2);
+            List<int> nums = query.ToList();
+            foreach (var item in nums) {
+                Console.WriteLine(item);
+            }
+            
+           // numbers.Select(n => n * 2).ToList().ForEach(Console.WriteLine);
         }
     }
 }
