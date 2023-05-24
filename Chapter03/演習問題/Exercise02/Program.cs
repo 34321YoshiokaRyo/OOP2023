@@ -33,7 +33,7 @@ namespace Exercise02 {
                 Console.WriteLine(index);
                 str = Console.ReadLine();
             }
-            
+
         }
 
         private static void Exercise2_2(List<string> names) {
@@ -42,14 +42,17 @@ namespace Exercise02 {
         }
 
         private static void Exercise2_3(List<string> names) {
-            var city = names.Where(s => s.Contains("o"));
+            var city = names.Where(s => s.Contains("o")).ToArray();
             foreach (var n in city) {
                 Console.WriteLine(n);
             }
         }
 
         private static void Exercise2_4(List<string> names) {
-            
+            var city = names.Where(s => s[0] == 'B').Select(n => n.Length);
+            foreach (var item in city) {
+                Console.WriteLine(item);
+            }
         }
     }
 }
