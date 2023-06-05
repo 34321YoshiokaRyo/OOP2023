@@ -40,7 +40,7 @@ namespace Exercise03 {
             var words = text.Split(' ');
             Console.WriteLine(words.Length);
         }
-
+        
         private static void Exercise3_4(string text) {
             var words = text.Split(' ');
             foreach (var item in words) {
@@ -58,6 +58,7 @@ namespace Exercise03 {
                 sb.Append(" ");
             }
             var str = sb.ToString();
+            str = str.Trim();
             Console.WriteLine(str);
         }
     }
