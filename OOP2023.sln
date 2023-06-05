@@ -69,6 +69,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "演習問題", "演習問�
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise01", "Chapter05\演習問題\Exercise01\Exercise01.csproj", "{AC801F5D-9B26-40D5-9291-C6D0A52F3FED}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise02", "Chapter05\演習問題\Exercise02\Exercise02.csproj", "{A1FC34B4-F0F5-4969-9FCF-E5FB21141E95}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise03", "Chapter05\演習問題\Exercise03\Exercise03\Exercise03.csproj", "{E2AE852A-467B-4AD8-98C4-FA83D5CE951A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -151,6 +155,14 @@ Global
 		{AC801F5D-9B26-40D5-9291-C6D0A52F3FED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC801F5D-9B26-40D5-9291-C6D0A52F3FED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC801F5D-9B26-40D5-9291-C6D0A52F3FED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1FC34B4-F0F5-4969-9FCF-E5FB21141E95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1FC34B4-F0F5-4969-9FCF-E5FB21141E95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1FC34B4-F0F5-4969-9FCF-E5FB21141E95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1FC34B4-F0F5-4969-9FCF-E5FB21141E95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2AE852A-467B-4AD8-98C4-FA83D5CE951A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2AE852A-467B-4AD8-98C4-FA83D5CE951A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2AE852A-467B-4AD8-98C4-FA83D5CE951A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2AE852A-467B-4AD8-98C4-FA83D5CE951A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -183,6 +195,8 @@ Global
 		{04CB5137-1669-4CA1-B362-8A2D2463C6E5} = {C5F9C2F0-37A1-4CAE-943C-86DF9EB74163}
 		{71CAD4B6-1D4D-47BB-AAB8-0B241831F3B4} = {7088682C-03BC-4C05-A4B0-554444F68B4C}
 		{AC801F5D-9B26-40D5-9291-C6D0A52F3FED} = {71CAD4B6-1D4D-47BB-AAB8-0B241831F3B4}
+		{A1FC34B4-F0F5-4969-9FCF-E5FB21141E95} = {71CAD4B6-1D4D-47BB-AAB8-0B241831F3B4}
+		{E2AE852A-467B-4AD8-98C4-FA83D5CE951A} = {71CAD4B6-1D4D-47BB-AAB8-0B241831F3B4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {97DF7828-B8F7-40CE-B548-D9A428DC1DC2}
