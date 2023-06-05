@@ -26,7 +26,8 @@ namespace Exercise03 {
         }
 
         private static void Exercise3_1(string text) {
-            
+            Console.Write("空白数：");
+            Console.WriteLine(text.Where(c => c == ' ').Count());
         }
 
         private static void Exercise3_2(string text) {
