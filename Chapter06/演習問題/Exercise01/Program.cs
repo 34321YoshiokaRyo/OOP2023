@@ -30,6 +30,10 @@ namespace Exercise01 {
         }
 
         private static void Exercise1_2(int[] numbers) {
+            var nums = numbers.Skip(9);
+            foreach (var item in nums) {
+                Console.WriteLine(item);
+            }
             
         }
 
