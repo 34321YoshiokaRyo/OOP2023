@@ -70,7 +70,14 @@ namespace Exercise02 {
         }
 
         private static void Exercise2_5(List<Book> books) {
-            
+            var selected = books.Where(n => n.Price < 4000);
+            var maxPage = 0;
+            foreach (var item in selected) {
+                if (item.Pages > maxPage) {
+                    maxPage = item.Pages;
+                } 
+            }
+            Console.WriteLine(maxPage);
         }
 
         private static void Exercise2_6(List<Book> books) {
