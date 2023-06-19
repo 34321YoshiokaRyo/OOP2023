@@ -45,7 +45,11 @@ namespace Exercise01 {
         }
 
         private static void Exercise1_4(int[] numbers) {
-
+            var sort = numbers.OrderBy(n => n).Take(3);
+            foreach (var item in sort) {
+                Console.WriteLine(item);
+            }
+            
         }
 
         private static void Exercise1_5(int[] numbers) {
