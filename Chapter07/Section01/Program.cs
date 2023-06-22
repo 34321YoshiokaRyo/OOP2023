@@ -27,19 +27,38 @@ namespace Section01 {
             var prefDict = new Dictionary<string, string>() {
 
             };
+
             Console.Write("県名：");
             var prefecture = Console.ReadLine();
-            do {
+            
+            while (prefecture != "999") {
                 Console.Write("県庁所在地：");
                 var city = Console.ReadLine();
-                prefDict[prefecture] = city;
+            
+                if (prefDict.ContainsKey(prefecture)) {
+                    Console.WriteLine("すでに県名が入力されています");
+                    Console.Write("上書きしますか？(y,n):");
+                    if (Console.ReadLine() == "y") {
+                        prefDict[prefecture] = city;
+                    }
+                } else
+                    prefDict[prefecture] = city;
+
                 Console.Write("県名：");
                 prefecture = Console.ReadLine();
-            } while (prefecture != "999");
+            }
 
-            Console.Write("県名入力：");
-            var str = Console.ReadLine();
-            Console.WriteLine(prefDict[str] + "です");
+            Console.Write("１：一覧表示、２：県名指定：");
+            if (Console.ReadLine() == "1") {
+                foreach (var item in prefDict) {
+                    Console.WriteLine("{0} {1}", item.Key, item.Value);
+                }
+            }
+            else {
+                Console.Write("県名入力：");
+                var str = Console.ReadLine();
+                Console.WriteLine(prefDict[str] + "です");
+            }
         }
     }
 }
