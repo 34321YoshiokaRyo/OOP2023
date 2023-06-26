@@ -43,7 +43,7 @@ namespace SalesCalculator {
                 };
                 sales.Add(sale);    //Saleインスタンスをコレクションに追加
             }
-
+            
             return sales;
         }
     }
