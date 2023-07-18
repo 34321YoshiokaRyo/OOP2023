@@ -184,6 +184,12 @@ namespace CarReportSystem {
             vf.ShowDialog();    //モーダルダイアログとして商事
         }
 
-        
+        private void 色設定ToolStripMenuItem_Click(object sender, EventArgs e) {
+            if (cdColor.ShowDialog() == DialogResult.OK) {
+                cdColor.ShowDialog();
+                BackColor = cdColor.Color;
+            }
+           
+        }
     }
 }
