@@ -12,6 +12,7 @@ namespace CarReportSystem {
     public partial class Form1 : Form {
         //管理用データ
         BindingList<CarReport> CarReports = new BindingList<CarReport>();
+        private int mode;
 
         public Form1() {
             InitializeComponent();
@@ -140,15 +141,18 @@ namespace CarReportSystem {
 
         //レコード選択時
         private void dgvCarReports_CellContentClick(object sender, DataGridViewCellEventArgs e) {
-            dtpDate.Value = (DateTime)dgvCarReports.CurrentRow.Cells[0].Value;
-            cbAuthor.Text = dgvCarReports.CurrentRow.Cells[1].Value.ToString();
-            setSelectedMaker((CarReport.MakerGroup)dgvCarReports.CurrentRow.Cells[2].Value);
-            cbCarName.Text = dgvCarReports.CurrentRow.Cells[3].Value.ToString();
-            tbReport.Text = dgvCarReports.CurrentRow.Cells[4].Value.ToString();
-            pbCarImage.Image = (Image)dgvCarReports.CurrentRow.Cells[5].Value;
+            if (dgvCarReports.Rows.Count != 0) {
+                dtpDate.Value = (DateTime)dgvCarReports.CurrentRow.Cells[0].Value;
+                cbAuthor.Text = dgvCarReports.CurrentRow.Cells[1].Value.ToString();
+                setSelectedMaker((CarReport.MakerGroup)dgvCarReports.CurrentRow.Cells[2].Value);
+                cbCarName.Text = dgvCarReports.CurrentRow.Cells[3].Value.ToString();
+                tbReport.Text = dgvCarReports.CurrentRow.Cells[4].Value.ToString();
+                pbCarImage.Image = (Image)dgvCarReports.CurrentRow.Cells[5].Value;
 
-            btModifyReport.Enabled = true;
-            btDeleteReport.Enabled = true;
+                btModifyReport.Enabled = true;
+                btDeleteReport.Enabled = true;
+            }
+            
         }
 
         private void Form1_Load(object sender, EventArgs e) {
@@ -176,6 +180,9 @@ namespace CarReportSystem {
         }
 
         private void btImageDelete_Click(object sender, EventArgs e) {
+           // if (ofdImageFileOpen.ShowDialog() == DialogResult.OK) {
+           //     pbCarImage.Image = Image.FromFile()
+          //  }
             pbCarImage.Image = null;
         }
 
@@ -189,7 +196,11 @@ namespace CarReportSystem {
                 cdColor.ShowDialog();
                 BackColor = cdColor.Color;
             }
-           
+        }
+
+        private void btScaleChange_Click(object sender, EventArgs e) {
+            mode = mode < 4 ? ++mode : 0;
+            pbCarImage.SizeMode = (PictureBoxSizeMode)mode;
         }
     }
 }
