@@ -16,10 +16,26 @@ namespace CarReportSystem {
         public Form1() {
             InitializeComponent();
             dgvCarReports.DataSource = CarReports;
+
+        }
+
+        //ステータスラベルのテキスト表示・非表示
+        private void statasLabelDisp(string msg = "") {
+            tsInfoText.Text = msg;
         }
 
         //追加ボタンがクリックされた時のイベントハンドラー
         private void btAddReport_Click(object sender, EventArgs e) {
+            statasLabelDisp();//ステータスラベルのテキスト非表示
+            if (cbAuthor.Text.Equals("")) {
+                statasLabelDisp("記録者を入力してください");
+                return;
+            }
+            else if (cbCarName.Text.Equals("")) {
+                statasLabelDisp("車名を入力してください");
+                return;
+            }
+
             CarReport cr = new CarReport {
                 date = dtpDate.Value,
                 Author = cbAuthor.Text,
@@ -29,6 +45,42 @@ namespace CarReportSystem {
                 CarImage = pbCarImage.Image,
             };
             CarReports.Add(cr);
+            setCbAuthor(cbAuthor.Text);
+            setCbCarName(cbCarName.Text);
+            editItemsClear();
+
+        }
+
+        private void setCbAuthor(string author) {
+            if (!cbAuthor.Items.Contains(author)) {
+                cbAuthor.Items.Add(author);
+            }
+        }
+
+        private void setCbCarName(string carname) {
+            if (!cbCarName.Items.Contains(carname)) {
+                cbCarName.Items.Add(carname);
+            }
+        }
+
+        private void editItemsClear() {
+             cbAuthor.Text = string.Empty;
+             rbToyota.Checked = false;
+             rbNissan.Checked = false;
+             rbHonda.Checked = false;
+             rbImported.Checked = false;
+             rbSubaru.Checked = false;
+             rbSuzuki.Checked = false;
+             rbDaihatsu.Checked = false;
+             rbOther.Checked = false;
+             cbCarName.Text = string.Empty;
+             tbReport.Text = string.Empty;
+             pbCarImage.Image = null;
+             dgvCarReports.ClearSelection();
+             btModifyReport.Enabled = false;
+             btDeleteReport.Enabled = false;
+
+           
         }
 
         //ラジオボタンで選択されているメーカーを返却
@@ -42,29 +94,6 @@ namespace CarReportSystem {
             }
             return (CarReport.MakerGroup)tag;
 
-            /*         if (rbToyota.Checked) {
-                         return CarReport.MakerGroup.トヨタ;
-                     }else if (rbNissan.Checked) {
-                         return CarReport.MakerGroup.日産;
-                     }
-                     else if (rbHonda.Checked) {
-                         return CarReport.MakerGroup.ホンダ;
-                     }
-                     else if (rbImported.Checked) {
-                         return CarReport.MakerGroup.輸入車;
-                     }
-                     else if (rbSubaru.Checked) {
-                         return CarReport.MakerGroup.スバル;
-                     }
-                     else if (rbSuzuki.Checked) {
-                         return CarReport.MakerGroup.スズキ;
-                     }
-                     else if (rbDaihatsu.Checked) {
-                         return CarReport.MakerGroup.ダイハツ;
-                     }
-
-                     return CarReport.MakerGroup.その他;
-           */
         }
 
         //指定したメーカーのラジオボタンをセット
@@ -74,18 +103,25 @@ namespace CarReportSystem {
                     rbToyota.Checked = true;
                     break;
                 case CarReport.MakerGroup.日産:
+                    rbNissan.Checked = true;
                     break;
                 case CarReport.MakerGroup.ホンダ:
-                    break;
-                case CarReport.MakerGroup.輸入車:
+                    rbHonda.Checked = true;
                     break;
                 case CarReport.MakerGroup.スバル:
+                    rbSubaru.Checked = true;
                     break;
                 case CarReport.MakerGroup.スズキ:
+                    rbSuzuki.Checked = true;
                     break;
                 case CarReport.MakerGroup.ダイハツ:
+                    rbDaihatsu.Checked = true;
+                    break;
+                case CarReport.MakerGroup.輸入車:
+                    rbImported.Checked = true;
                     break;
                 case CarReport.MakerGroup.その他:
+                    rbOther.Checked = true;
                     break;
             }
         }
@@ -98,12 +134,8 @@ namespace CarReportSystem {
 
         //削除ボタンイベントハンドラ
         private void btDeleteReport_Click(object sender, EventArgs e) {
-            //   foreach (DataGridViewRow item in dgvCarReports.SelectedRows) {
-            //       if (!item.IsNewRow) {
-            //          dgvCarReports.Rows.Remove(item);
-            //       }
-            //   }
             CarReports.RemoveAt(dgvCarReports.CurrentRow.Index);
+            editItemsClear();
         }
 
         //レコード選択時
@@ -114,22 +146,44 @@ namespace CarReportSystem {
             cbCarName.Text = dgvCarReports.CurrentRow.Cells[3].Value.ToString();
             tbReport.Text = dgvCarReports.CurrentRow.Cells[4].Value.ToString();
             pbCarImage.Image = (Image)dgvCarReports.CurrentRow.Cells[5].Value;
+
+            btModifyReport.Enabled = true;
+            btDeleteReport.Enabled = true;
         }
 
         private void Form1_Load(object sender, EventArgs e) {
             dgvCarReports.Columns[5].Visible = false;   //画像項目非表示
             btModifyReport.Enabled = false;//マスク
+            btDeleteReport.Enabled = false;
+
         }
 
         //更新ボタンイベントハンドラ
         private void btModifyReport_Click(object sender, EventArgs e) {
-            CarReports[dgvCarReports.CurrentRow.Index].date = dtpDate.Value;
-            CarReports[dgvCarReports.CurrentRow.Index].Author = cbAuthor.Text;
-            CarReports[dgvCarReports.CurrentRow.Index].Maker = getSelectedMaker();
-            CarReports[dgvCarReports.CurrentRow.Index].CarName = cbCarName.Text;
-            CarReports[dgvCarReports.CurrentRow.Index].Report = tbReport.Text;
-            dgvCarReports.Refresh();
+            if (dgvCarReports.Rows.Count != 0) {
+                CarReports[dgvCarReports.CurrentRow.Index].date = dtpDate.Value;
+                CarReports[dgvCarReports.CurrentRow.Index].Author = cbAuthor.Text;
+                CarReports[dgvCarReports.CurrentRow.Index].Maker = getSelectedMaker();
+                CarReports[dgvCarReports.CurrentRow.Index].CarName = cbCarName.Text;
+                CarReports[dgvCarReports.CurrentRow.Index].Report = tbReport.Text;
+                dgvCarReports.Refresh();    //一覧更新
+            }
         }
-    }
 
+        //終了メニュー選択時のイベントハンドラ
+        private void 終了XToolStripMenuItem_Click(object sender, EventArgs e) {
+            Application.Exit();
+        }
+
+        private void btImageDelete_Click(object sender, EventArgs e) {
+            pbCarImage.Image = null;
+        }
+
+        private void バージョン情報ToolStripMenuItem_Click(object sender, EventArgs e) {
+            var vf = new VersionForm();
+            vf.ShowDialog();    //モーダルダイアログとして商事
+        }
+
+        
+    }
 }
