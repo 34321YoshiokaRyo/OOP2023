@@ -113,7 +113,7 @@ namespace CarReportSystem {
             this.cbAuthor.Location = new System.Drawing.Point(75, 88);
             this.cbAuthor.Name = "cbAuthor";
             this.cbAuthor.Size = new System.Drawing.Size(200, 20);
-            this.cbAuthor.TabIndex = 3;
+            this.cbAuthor.TabIndex = 2;
             // 
             // label3
             // 
@@ -223,7 +223,7 @@ namespace CarReportSystem {
             this.radioButton1.Location = new System.Drawing.Point(7, 4);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(47, 16);
-            this.radioButton1.TabIndex = 0;
+            this.radioButton1.TabIndex = 6;
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "トヨタ";
             this.radioButton1.UseVisualStyleBackColor = true;
@@ -240,14 +240,14 @@ namespace CarReportSystem {
             this.gbMaker.Controls.Add(this.rbToyota);
             this.gbMaker.Location = new System.Drawing.Point(75, 122);
             this.gbMaker.Name = "gbMaker";
-            this.gbMaker.Size = new System.Drawing.Size(291, 69);
-            this.gbMaker.TabIndex = 5;
+            this.gbMaker.Size = new System.Drawing.Size(290, 86);
+            this.gbMaker.TabIndex = 3;
             this.gbMaker.TabStop = false;
             // 
             // rbDaihatsu
             // 
             this.rbDaihatsu.AutoSize = true;
-            this.rbDaihatsu.Location = new System.Drawing.Point(140, 38);
+            this.rbDaihatsu.Location = new System.Drawing.Point(140, 53);
             this.rbDaihatsu.Name = "rbDaihatsu";
             this.rbDaihatsu.Size = new System.Drawing.Size(60, 16);
             this.rbDaihatsu.TabIndex = 7;
@@ -259,10 +259,10 @@ namespace CarReportSystem {
             // rbImported
             // 
             this.rbImported.AutoSize = true;
-            this.rbImported.Location = new System.Drawing.Point(219, 6);
+            this.rbImported.Location = new System.Drawing.Point(219, 21);
             this.rbImported.Name = "rbImported";
             this.rbImported.Size = new System.Drawing.Size(59, 16);
-            this.rbImported.TabIndex = 6;
+            this.rbImported.TabIndex = 4;
             this.rbImported.TabStop = true;
             this.rbImported.Tag = "6";
             this.rbImported.Text = "輸入車";
@@ -271,10 +271,10 @@ namespace CarReportSystem {
             // rbSuzuki
             // 
             this.rbSuzuki.AutoSize = true;
-            this.rbSuzuki.Location = new System.Drawing.Point(70, 38);
+            this.rbSuzuki.Location = new System.Drawing.Point(70, 53);
             this.rbSuzuki.Name = "rbSuzuki";
             this.rbSuzuki.Size = new System.Drawing.Size(52, 16);
-            this.rbSuzuki.TabIndex = 5;
+            this.rbSuzuki.TabIndex = 6;
             this.rbSuzuki.TabStop = true;
             this.rbSuzuki.Tag = "4";
             this.rbSuzuki.Text = "スズキ";
@@ -283,10 +283,10 @@ namespace CarReportSystem {
             // rbOther
             // 
             this.rbOther.AutoSize = true;
-            this.rbOther.Location = new System.Drawing.Point(219, 38);
+            this.rbOther.Location = new System.Drawing.Point(219, 53);
             this.rbOther.Name = "rbOther";
             this.rbOther.Size = new System.Drawing.Size(54, 16);
-            this.rbOther.TabIndex = 7;
+            this.rbOther.TabIndex = 8;
             this.rbOther.TabStop = true;
             this.rbOther.Tag = "7";
             this.rbOther.Text = "その他";
@@ -295,10 +295,10 @@ namespace CarReportSystem {
             // rbSubaru
             // 
             this.rbSubaru.AutoSize = true;
-            this.rbSubaru.Location = new System.Drawing.Point(7, 38);
+            this.rbSubaru.Location = new System.Drawing.Point(7, 53);
             this.rbSubaru.Name = "rbSubaru";
             this.rbSubaru.Size = new System.Drawing.Size(52, 16);
-            this.rbSubaru.TabIndex = 3;
+            this.rbSubaru.TabIndex = 5;
             this.rbSubaru.TabStop = true;
             this.rbSubaru.Tag = "3";
             this.rbSubaru.Text = "スバル";
@@ -307,10 +307,10 @@ namespace CarReportSystem {
             // rbHonda
             // 
             this.rbHonda.AutoSize = true;
-            this.rbHonda.Location = new System.Drawing.Point(139, 6);
+            this.rbHonda.Location = new System.Drawing.Point(139, 21);
             this.rbHonda.Name = "rbHonda";
             this.rbHonda.Size = new System.Drawing.Size(51, 16);
-            this.rbHonda.TabIndex = 2;
+            this.rbHonda.TabIndex = 3;
             this.rbHonda.TabStop = true;
             this.rbHonda.Tag = "2";
             this.rbHonda.Text = "ホンダ";
@@ -319,10 +319,10 @@ namespace CarReportSystem {
             // rbNissan
             // 
             this.rbNissan.AutoSize = true;
-            this.rbNissan.Location = new System.Drawing.Point(70, 4);
+            this.rbNissan.Location = new System.Drawing.Point(70, 19);
             this.rbNissan.Name = "rbNissan";
             this.rbNissan.Size = new System.Drawing.Size(47, 16);
-            this.rbNissan.TabIndex = 1;
+            this.rbNissan.TabIndex = 2;
             this.rbNissan.TabStop = true;
             this.rbNissan.Tag = "1";
             this.rbNissan.Text = "日産";
@@ -331,10 +331,10 @@ namespace CarReportSystem {
             // rbToyota
             // 
             this.rbToyota.AutoSize = true;
-            this.rbToyota.Location = new System.Drawing.Point(7, 4);
+            this.rbToyota.Location = new System.Drawing.Point(7, 19);
             this.rbToyota.Name = "rbToyota";
             this.rbToyota.Size = new System.Drawing.Size(47, 16);
-            this.rbToyota.TabIndex = 0;
+            this.rbToyota.TabIndex = 1;
             this.rbToyota.TabStop = true;
             this.rbToyota.Tag = "0";
             this.rbToyota.Text = "トヨタ";
@@ -346,7 +346,7 @@ namespace CarReportSystem {
             this.cbCarName.Location = new System.Drawing.Point(75, 214);
             this.cbCarName.Name = "cbCarName";
             this.cbCarName.Size = new System.Drawing.Size(121, 20);
-            this.cbCarName.TabIndex = 6;
+            this.cbCarName.TabIndex = 4;
             // 
             // label4
             // 
@@ -372,7 +372,7 @@ namespace CarReportSystem {
             this.tbReport.Multiline = true;
             this.tbReport.Name = "tbReport";
             this.tbReport.Size = new System.Drawing.Size(278, 108);
-            this.tbReport.TabIndex = 9;
+            this.tbReport.TabIndex = 5;
             // 
             // dgvCarReports
             // 
@@ -412,7 +412,7 @@ namespace CarReportSystem {
             this.btImageOpen.Location = new System.Drawing.Point(452, 49);
             this.btImageOpen.Name = "btImageOpen";
             this.btImageOpen.Size = new System.Drawing.Size(87, 23);
-            this.btImageOpen.TabIndex = 13;
+            this.btImageOpen.TabIndex = 6;
             this.btImageOpen.Text = "開く...";
             this.btImageOpen.UseVisualStyleBackColor = true;
             this.btImageOpen.Click += new System.EventHandler(this.btImageOpen_Click);
@@ -422,7 +422,7 @@ namespace CarReportSystem {
             this.btImageDelete.Location = new System.Drawing.Point(547, 49);
             this.btImageDelete.Name = "btImageDelete";
             this.btImageDelete.Size = new System.Drawing.Size(87, 23);
-            this.btImageDelete.TabIndex = 14;
+            this.btImageDelete.TabIndex = 7;
             this.btImageDelete.Text = "削除";
             this.btImageDelete.UseVisualStyleBackColor = true;
             this.btImageDelete.Click += new System.EventHandler(this.btImageDelete_Click);
@@ -440,33 +440,35 @@ namespace CarReportSystem {
             // 
             // btAddReport
             // 
-            this.btAddReport.BackColor = System.Drawing.SystemColors.Control;
+            this.btAddReport.BackColor = System.Drawing.SystemColors.Window;
             this.btAddReport.Location = new System.Drawing.Point(421, 269);
             this.btAddReport.Name = "btAddReport";
             this.btAddReport.Size = new System.Drawing.Size(93, 65);
-            this.btAddReport.TabIndex = 16;
+            this.btAddReport.TabIndex = 9;
             this.btAddReport.Text = "追加";
             this.btAddReport.UseVisualStyleBackColor = false;
             this.btAddReport.Click += new System.EventHandler(this.btAddReport_Click);
             // 
             // btModifyReport
             // 
+            this.btModifyReport.BackColor = System.Drawing.SystemColors.Window;
             this.btModifyReport.Location = new System.Drawing.Point(524, 269);
             this.btModifyReport.Name = "btModifyReport";
             this.btModifyReport.Size = new System.Drawing.Size(93, 65);
-            this.btModifyReport.TabIndex = 17;
+            this.btModifyReport.TabIndex = 10;
             this.btModifyReport.Text = "修正";
-            this.btModifyReport.UseVisualStyleBackColor = true;
+            this.btModifyReport.UseVisualStyleBackColor = false;
             this.btModifyReport.Click += new System.EventHandler(this.btModifyReport_Click);
             // 
             // btDeleteReport
             // 
+            this.btDeleteReport.BackColor = System.Drawing.SystemColors.Window;
             this.btDeleteReport.Location = new System.Drawing.Point(625, 269);
             this.btDeleteReport.Name = "btDeleteReport";
             this.btDeleteReport.Size = new System.Drawing.Size(93, 65);
-            this.btDeleteReport.TabIndex = 18;
+            this.btDeleteReport.TabIndex = 11;
             this.btDeleteReport.Text = "削除";
-            this.btDeleteReport.UseVisualStyleBackColor = true;
+            this.btDeleteReport.UseVisualStyleBackColor = false;
             this.btDeleteReport.Click += new System.EventHandler(this.btDeleteReport_Click);
             // 
             // menuStrip1
@@ -524,7 +526,7 @@ namespace CarReportSystem {
             // 色設定ToolStripMenuItem
             // 
             this.色設定ToolStripMenuItem.Name = "色設定ToolStripMenuItem";
-            this.色設定ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.色設定ToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.色設定ToolStripMenuItem.Text = "色設定...";
             this.色設定ToolStripMenuItem.Click += new System.EventHandler(this.色設定ToolStripMenuItem_Click);
             // 
@@ -569,7 +571,7 @@ namespace CarReportSystem {
             this.btScaleChange.Location = new System.Drawing.Point(643, 49);
             this.btScaleChange.Name = "btScaleChange";
             this.btScaleChange.Size = new System.Drawing.Size(93, 23);
-            this.btScaleChange.TabIndex = 24;
+            this.btScaleChange.TabIndex = 8;
             this.btScaleChange.Text = "サイズ変更";
             this.btScaleChange.UseVisualStyleBackColor = true;
             this.btScaleChange.Click += new System.EventHandler(this.btScaleChange_Click);
@@ -605,7 +607,7 @@ namespace CarReportSystem {
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "カーレポート管理システム";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

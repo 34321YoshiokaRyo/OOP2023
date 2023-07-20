@@ -7,12 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
+using System.Xml.Serialization;
 
 namespace CarReportSystem {
     public partial class Form1 : Form {
         //管理用データ
         BindingList<CarReport> CarReports = new BindingList<CarReport>();
         private int mode;
+
+        //設定情報保存用オブジェクト
+        Settings settings = new Settings();
 
         public Form1() {
             InitializeComponent();
@@ -65,23 +70,23 @@ namespace CarReportSystem {
         }
 
         private void editItemsClear() {
-             cbAuthor.Text = string.Empty;
-             rbToyota.Checked = false;
-             rbNissan.Checked = false;
-             rbHonda.Checked = false;
-             rbImported.Checked = false;
-             rbSubaru.Checked = false;
-             rbSuzuki.Checked = false;
-             rbDaihatsu.Checked = false;
-             rbOther.Checked = false;
-             cbCarName.Text = string.Empty;
-             tbReport.Text = string.Empty;
-             pbCarImage.Image = null;
-             dgvCarReports.ClearSelection();
-             btModifyReport.Enabled = false;
-             btDeleteReport.Enabled = false;
+            cbAuthor.Text = string.Empty;
+            rbToyota.Checked = false;
+            rbNissan.Checked = false;
+            rbHonda.Checked = false;
+            rbImported.Checked = false;
+            rbSubaru.Checked = false;
+            rbSuzuki.Checked = false;
+            rbDaihatsu.Checked = false;
+            rbOther.Checked = false;
+            cbCarName.Text = string.Empty;
+            tbReport.Text = string.Empty;
+            pbCarImage.Image = null;
+            dgvCarReports.ClearSelection();
+            btModifyReport.Enabled = false;
+            btDeleteReport.Enabled = false;
 
-           
+
         }
 
         //ラジオボタンで選択されているメーカーを返却
@@ -152,14 +157,19 @@ namespace CarReportSystem {
                 btModifyReport.Enabled = true;
                 btDeleteReport.Enabled = true;
             }
-            
         }
 
         private void Form1_Load(object sender, EventArgs e) {
             dgvCarReports.Columns[5].Visible = false;   //画像項目非表示
-            btModifyReport.Enabled = false;//マスク
+            btModifyReport.Enabled = false;
             btDeleteReport.Enabled = false;
 
+            //設定ファイルを逆シリアル化して背景設定
+            using(var reader = XmlReader.Create("settings.xml")) {
+                var serializer = new XmlSerializer(typeof(Settings));
+                settings = serializer.Deserialize(reader) as Settings;
+                BackColor = Color.FromArgb(settings.MainFormColor);
+            }
         }
 
         //更新ボタンイベントハンドラ
@@ -180,9 +190,9 @@ namespace CarReportSystem {
         }
 
         private void btImageDelete_Click(object sender, EventArgs e) {
-           // if (ofdImageFileOpen.ShowDialog() == DialogResult.OK) {
-           //     pbCarImage.Image = Image.FromFile()
-          //  }
+            // if (ofdImageFileOpen.ShowDialog() == DialogResult.OK) {
+            //     pbCarImage.Image = Image.FromFile()
+            //  }
             pbCarImage.Image = null;
         }
 
@@ -193,14 +203,23 @@ namespace CarReportSystem {
 
         private void 色設定ToolStripMenuItem_Click(object sender, EventArgs e) {
             if (cdColor.ShowDialog() == DialogResult.OK) {
-                cdColor.ShowDialog();
                 BackColor = cdColor.Color;
+                settings.MainFormColor = cdColor.Color.ToArgb();
             }
         }
 
         private void btScaleChange_Click(object sender, EventArgs e) {
-            mode = mode < 4 ? ++mode : 0;
+            mode = mode < 4 ? ((mode == 1) ? 3 : ++mode) : 0;
             pbCarImage.SizeMode = (PictureBoxSizeMode)mode;
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e) {
+            //設定ファイルのシリアル化
+                using (var writer = XmlWriter.Create("settings.xml")) {
+                var serializer = new XmlSerializer(settings.GetType());
+                serializer.Serialize(writer, settings);
+            }
+
         }
     }
 }
