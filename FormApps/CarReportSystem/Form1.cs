@@ -171,11 +171,16 @@ namespace CarReportSystem {
             btModifyReport.Enabled = false;
             btDeleteReport.Enabled = false;
 
-            //設定ファイルを逆シリアル化して背景設定
-            using(var reader = XmlReader.Create("settings.xml")) {
-                var serializer = new XmlSerializer(typeof(Settings));
-                settings = serializer.Deserialize(reader) as Settings;
-                BackColor = Color.FromArgb(settings.MainFormColor);
+            try {
+                //設定ファイルを逆シリアル化して背景設定
+                using (var reader = XmlReader.Create("settings.xml")) {
+                    var serializer = new XmlSerializer(typeof(Settings));
+                    settings = serializer.Deserialize(reader) as Settings;
+                    BackColor = Color.FromArgb(settings.MainFormColor);
+                }
+            }
+            catch (Exception ex) {
+                MessageBox.Show(ex.Message);
             }
         }
 
