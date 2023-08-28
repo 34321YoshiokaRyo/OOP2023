@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -57,12 +59,14 @@ namespace CarReportSystem {
 
         }
 
+        //記録者コンボボックスの履歴登録処理
         private void setCbAuthor(string author) {
             if (!cbAuthor.Items.Contains(author)) {
                 cbAuthor.Items.Add(author);
             }
         }
 
+        //車名コンボボックスの履歴登録処理
         private void setCbCarName(string carname) {
             if (!cbCarName.Items.Contains(carname)) {
                 cbCarName.Items.Add(carname);
@@ -239,14 +243,44 @@ namespace CarReportSystem {
         }
 
         private void 保存ToolStripMenuItem_Click(object sender, EventArgs e) {
-            if (sfdCarRepoSave.ShowDialog() == DialogResult.OK) { 
-            
+            if (sfdCarRepoSave.ShowDialog() == DialogResult.OK) {
+                try {
+                    //バイナリ形式でシリアル化
+                    var bf = new BinaryFormatter();
+                    using (FileStream fs = File.Open(sfdCarRepoSave.FileName, FileMode.Create)) {
+                        bf.Serialize(fs, CarReports);
+                    }
+                }
+                catch (Exception ex) {
+                    MessageBox.Show(ex.Message);
+
+                }
             }
         }
 
         private void 開くToolStripMenuItem_Click(object sender, EventArgs e) {
-            if (ofdCarRepoOpen.ShowDialog() == DialogResult.OK) { 
-            
+            if (ofdCarRepoOpen.ShowDialog() == DialogResult.OK) {
+                try {
+                    //逆シリアル化バイナリ形式を取り込む
+                    var bf = new BinaryFormatter();
+                    using (FileStream fs = File.Open(ofdCarRepoOpen.FileName, FileMode.Open,FileAccess.Read)) {
+                        CarReports = (BindingList<CarReport>)bf.Deserialize(fs);
+                        dgvCarReports.DataSource = null;
+                        dgvCarReports.DataSource = CarReports;
+
+                        cbAuthor.Items.Clear();
+                        cbCarName.Items.Clear();
+                        //editItemsClear();
+                        foreach (var carReport in CarReports) {
+                            setCbAuthor(carReport.Author);
+                            setCbCarName(carReport.CarName);
+                            dgvCarReports.Columns[5].Visible = false;
+                        }
+                    }
+                }
+                catch (Exception ex) {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
     }
