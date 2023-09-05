@@ -277,7 +277,7 @@ namespace CarReportSystem {
             }
         }
 
-      /*  private void dgvCarReports_CellClick(object sender, DataGridViewCellEventArgs e) {
+        private void dgvCarReports_CellClick(object sender, DataGridViewCellEventArgs e) {
             if (dgvCarReports.Rows.Count != 0) {
                 dtpDate.Value = (DateTime)dgvCarReports.CurrentRow.Cells[0].Value;
                 cbAuthor.Text = dgvCarReports.CurrentRow.Cells[1].Value.ToString();
@@ -289,21 +289,9 @@ namespace CarReportSystem {
                 btModifyReport.Enabled = true;
                 btDeleteReport.Enabled = true;
             }
-        }*/
-
-        private void dgvCarReports_CellClick(object sender, DataGridViewCellEventArgs e) {
-            if (dgvCarReports.Rows.Count != 0) {
-                dtpDate.Value = (DateTime)dgvCarReports.CurrentRow.Cells[1].Value;
-                cbAuthor.Text = dgvCarReports.CurrentRow.Cells[2].Value.ToString();
-                setSelectedMaker((CarReport.MakerGroup)dgvCarReports.CurrentRow.Cells[3].Value);
-                cbCarName.Text = dgvCarReports.CurrentRow.Cells[4].Value.ToString();
-                tbReport.Text = dgvCarReports.CurrentRow.Cells[5].Value.ToString();
-                pbCarImage.Image = (Image)dgvCarReports.CurrentRow.Cells[6].Value;
-
-                btModifyReport.Enabled = true;
-                btDeleteReport.Enabled = true;
-            }
         }
+
+       
 
         private void carReportTableBindingNavigatorSaveItem_Click(object sender, EventArgs e) {
             this.Validate();
