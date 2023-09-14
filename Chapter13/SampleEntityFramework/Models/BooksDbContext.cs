@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Data.Entity;
 using System.Linq;
-using System.Runtime.Remoting.Contexts;
 
 namespace SampleEntityFramework.Models {
-    public class BooksDbContext : Context {
+    public class BooksDbContext : DbContext {
         // コンテキストは、アプリケーションの構成ファイル (App.config または Web.config) から 'BooksDbContext' 
         // 接続文字列を使用するように構成されています。既定では、この接続文字列は LocalDb インスタンス上
         // の 'SampleEntityFramework.Models.BooksDbContext' データベースを対象としています。 

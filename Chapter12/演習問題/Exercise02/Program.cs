@@ -23,7 +23,7 @@ namespace Exercise02 {
         }
 
         private static object Exercise2_1(string v) {
-                using(var reader =)
+          //      using(var reader =)
 
         }
 
