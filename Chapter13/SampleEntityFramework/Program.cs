@@ -119,11 +119,18 @@ namespace SampleEntityFramework {
         }
 
         private static void Exercise1_3() {
-        //    using (var db = new BooksDbContext()) {
-        //        var title = db.Books.Where(a => a.Title.Length == db.Books.Max(x => x.Title.Length));
-        //        Console.WriteLine($"{title}");
-        //    }
-           
+            using (var db = new BooksDbContext()) {
+                var title = db.Books.Where(a => a.Title.Length == db.Books.Max(x => x.Title.Length));
+                foreach (var book in title.ToArray()) {
+                    Console.WriteLine("{0} {1} {2} ({3:yyyy/MM/dd})",
+                    book.Title,book.PublishedYear,book.Author.Name,book.Author.Birthday );
+                    
+                }
+
+                
+                
+
+            }
         }
 
         private static void Exercise1_4() {
